@@ -2,6 +2,13 @@
 version: '3.1'
 
 services:
+  web:
+    build: ./docker/nginx
+    volumes:
+    - ./out:/usr/share/nginx/html
+    # - ./nginx/custom.conf:/etc/nginx/conf.d/custom.conf
+    ports:
+    - "80:80"
   db:
     image: postgres
     restart: always
